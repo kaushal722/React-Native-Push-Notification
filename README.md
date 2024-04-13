@@ -1,4 +1,4 @@
-## <Your App Name> - React Native App with Push Notifications and Date Picker
+## React-Native-Push-Notification - React Native App with Push Notifications and Date Picker
 
 This React Native app demonstrates the use of push notifications and a date picker.
 
@@ -10,23 +10,11 @@ This React Native app demonstrates the use of push notifications and a date pick
 
 **Installation:**
 
-1. Clone this repository:
+Install dependencies:
 
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd <your-repo-name>
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install  # or yarn install
-   ```
+```bash
+npm install  # or yarn install
+```
 
 **Configuration:**
 
@@ -54,6 +42,22 @@ This app requests the following permissions:
 - `android.permission.VIBRATE`: Allows the device to vibrate upon receiving notifications.
 - `android.permission.RECEIVE_BOOT_COMPLETED`: Used by the push notification library for initialization purposes on boot completion.
 - `android.permission.POST_NOTIFICATIONS` (**New:** Added for sending notifications): Required by the `react-native-push-notification` library to schedule and display notifications within the app.
+
+- `<meta-data android:name="google_analytics_adid_collection_enabled" android:value="false" />
+  <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_name" android:value="NotifcationDemo"/>
+  <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_description" android:value="NotifcationDemo Notifications"/>
+  <!-- Change the resource name to your App's accent color - or any other color you want -->
+  <meta-data android:name="com.dieam.reactnativepushnotification.notification_color" android:resource="@android:color/white"/>
+
+<receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
+    <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
+    <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver" android:exported="false">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+        </intent-filter>
+    </receiver>`
 
 **Important Note:**
 
